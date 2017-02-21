@@ -38,7 +38,7 @@
     [super viewDidLoad];
     self.correctLabel.text = [NSString stringWithFormat:@"Correct: %ld", (long)self.stats.correctAnswers];
     self.inCorrectLabel.text = [NSString stringWithFormat:@"Incorrect: %ld", (long)self.stats.incorrectAnswers];
-    self.skippedLabel.text = [NSString stringWithFormat:@"Missed: %ld", (long)self.stats.missedQuestions];
+    self.skippedLabel.text = [NSString stringWithFormat:@"Unanswered: %ld", (long)self.stats.missedQuestions];
     self.avgResponseTimeLabel.text = [NSString stringWithFormat:@"Average time taken: %.2f s", self.stats.averageResponseTime];
     self.slowestQuestionLabel.text = [NSString stringWithFormat:@"Slowest answer: %.2f s", self.stats.slowestResponseTime];
     self.fastestQuestionLabel.text = [NSString stringWithFormat:@"Fastest answer: %.2f s", self.stats.fastestResponseTime];
