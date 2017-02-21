@@ -13,13 +13,13 @@
 
 @property (nonatomic, retain) NSString *questionText;
 @property (nonatomic, retain) NSArray *answers;
-@property (nonatomic) int correctAnswer;
+@property (nonatomic) NSInteger correctAnswer;
 
 @end
 
 @implementation Question
 
--(Question*) initWithQuestion:(NSString *) question answers:(NSArray *) answers correct:(int)correct{
+-(Question*) initWithQuestion:(NSString *) question answers:(NSArray *) answers correct:(NSInteger)correct{
     if (self = [super init]) {
         self.questionText = question;
         self.answers = answers;
