@@ -9,5 +9,11 @@
 #import "Stats.h"
 
 @implementation Stats
-
+-(Stats *) init{
+    if (self = [super init]) {
+        self.slowestResponseTime = DBL_MIN;
+        self.fastestResponseTime = DBL_MAX;
+    }
+    return self;
+}
 @end

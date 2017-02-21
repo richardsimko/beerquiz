@@ -20,9 +20,17 @@
 @property (nonatomic, retain) IBOutlet UILabel *timeRemainingLabel;
 @property (nonatomic, retain) IBOutlet UIButton *plusTimeButton;
 
+@property (nonatomic, retain) NSTimer *updateTimeTimer;
+@property (nonatomic, retain) NSTimer *timelimitTimer;
+
+@property (nonatomic) NSTimeInterval startTime;
+@property (nonatomic) NSTimeInterval expiryTime;
+
 @end
 
 @implementation QuestionViewController
+
+static const double MAX_TIME = 15.0;
 
 - (QuestionViewController*)initWithQuestion:(Question *)question{
     if (self = [super initWithNibName:@"QuestionViewController" bundle:nil]) {
@@ -41,7 +49,29 @@
         NSString *answerText = [self.question.answers objectAtIndex:i];
         [((UIButton *)[self.answerButtons objectAtIndex:i]) setTitle:answerText forState:UIControlStateNormal];
     }
-    // Do any additional setup after loading the view from its nib.
+    self.timeRemainingLabel.text = [NSString stringWithFormat:@"Time left: %.2f", MAX_TIME];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+    self.startTime = [[NSDate date] timeIntervalSince1970];
+    self.expiryTime = self.startTime + MAX_TIME;
+    self.updateTimeTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block: ^(NSTimer *timer){
+        NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+        self.timeRemainingLabel.text = [NSString stringWithFormat:@"Time left: %.2f", self.expiryTime - currentTime];
+    }];
+    self.timelimitTimer = [NSTimer scheduledTimerWithTimeInterval:MAX_TIME repeats:NO block:^(NSTimer *timer){
+        [self.updateTimeTimer invalidate];
+        for (UIButton *button in self.answerButtons) {
+            button.userInteractionEnabled = YES;
+        }
+        self.question.timeout = YES;
+        self.question.answerGiven = -1;
+        self.question.timeTaken = MAX_TIME;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.delegate didAnswerQuestion:self.question];
+    }];
 }
 
 -(IBAction)quitQuiz:(id)sender{
@@ -49,9 +79,11 @@
 }
 
 -(IBAction)answerPressed:(id)sender{
+    [self.updateTimeTimer invalidate];
+    [self.timelimitTimer invalidate];
     NSInteger index = [self.answerButtons indexOfObject:sender];
     if (index > -1) {
-        self.question.timeTaken = 0.0;
+        self.question.timeTaken = [[NSDate date] timeIntervalSince1970] - self.startTime;
         self.question.answerGiven = index;
         [self dismissViewControllerAnimated:YES completion:nil];
         [self.delegate didAnswerQuestion:self.question];
