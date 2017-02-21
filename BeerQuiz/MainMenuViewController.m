@@ -26,32 +26,14 @@
 
 @implementation MainMenuViewController
 
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void) presentQuestion: (Question*) q{
-    QuestionViewController *vc = [[QuestionViewController alloc] initWithQuestion:q inSession:self.session];
-    vc.delegate = self;
-    [self presentViewController:vc animated:YES completion:nil];
-}
-
 -(IBAction)startQuiz:(id)sender{
     if (sender == self.devModeButton) {
-        NSLog(@"Dev mode");
-    } else if(sender == self.startQuizButton){
-        NSLog(@"Real mode");
+        Question *question = [[Question alloc] initWithQuestion:@"What is the meaning of life?" answers:[NSArray arrayWithObjects: @"1", @"2", @"3", @"42", nil] correct:3];
+        Question *question2 = [[Question alloc] initWithQuestion:@"1+1" answers:[NSArray arrayWithObjects: @"1", @"2", @"3", @"42", nil] correct:1];
+        self.session = [[QuizSession alloc] initWithQuestions:[NSArray arrayWithObjects:question, question2, nil]];
+    } else {
+        self.session = [[QuizSession alloc] initWithFilename: @"Quiz"];
     }
-    Question *question = [[Question alloc] initWithQuestion:@"What is the meaning of life?" answers:[NSArray arrayWithObjects: @"1", @"2", @"3", @"42", nil] correct:3];
-    self.session = [[QuizSession alloc] initWithQuestions:[NSArray arrayWithObjects:question, nil]];
     self.quizInProgressLabel.hidden = NO;
     [self presentQuestion:[self.session nextQuestion:nil]];
 }
@@ -71,5 +53,13 @@
     self.quizInProgressLabel.hidden = YES;
     self.session = nil;
 }
+
+
+-(void) presentQuestion: (Question*) q{
+    QuestionViewController *vc = [[QuestionViewController alloc] initWithQuestion:q inSession:self.session];
+    vc.delegate = self;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 
 @end

@@ -12,12 +12,12 @@
 
 @property(nonatomic, retain, readonly) NSString *questionText;
 @property (nonatomic, retain, readonly) NSArray *answers;
-@property (nonatomic, readonly) int correctAnswer;
+@property (nonatomic, readonly) NSInteger correctAnswer;
 @property (nonatomic) NSInteger answerGiven;
 @property (nonatomic) double timeTaken;
 @property (nonatomic) BOOL timeout;
 
--(Question*) initWithQuestion:(NSString *) question answers:(NSArray *) answers correct:(int)correct;
+-(Question*) initWithQuestion:(NSString *) question answers:(NSArray *) answers correct:(NSInteger)correct;
 
 -(BOOL) checkAnswer;
 -(NSArray *)getFiftyFifty;

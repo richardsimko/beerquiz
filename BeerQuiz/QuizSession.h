@@ -17,6 +17,7 @@
 @property (nonatomic) BOOL extraTimeSpent;
 
 -(QuizSession *) initWithQuestions:(NSArray *)questions;
+-(QuizSession *) initWithFilename: (NSString *) filename;
 -(Question *)nextQuestion:(Question*)previousQuestion;
 
 @end

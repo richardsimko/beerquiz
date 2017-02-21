@@ -18,11 +18,34 @@
 
 @implementation QuizSession
 
--(QuizSession *) initWithQuestions:(NSArray *)questions{
+-(QuizSession *) init{
     if (self = [super init]) {
-        self.questions = questions;
         self.currentQuestion = -1;
         self.stats = [[Stats alloc] init];
+    }
+    return self;
+}
+
+-(QuizSession *) initWithQuestions:(NSArray *)questions {
+    if (self = [self init]) {
+        self.questions = questions;
+    }
+    return self;
+}
+
+/**
+ * Loads the file with the specified name (Must be a plist file) and uses it as the base for the quiz.
+ */
+-(QuizSession *)initWithFilename: (NSString *) filename{
+    if (self = [self init]) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@"plist"];
+        NSArray *questionPlist = [NSArray arrayWithContentsOfFile:path];
+        NSMutableArray *questions = [NSMutableArray array];
+        for (NSDictionary *questionDictionary in questionPlist) {
+            Question *q = [[Question alloc] initWithQuestion:[questionDictionary objectForKey:@"question"] answers:[questionDictionary objectForKey:@"answers"] correct:((NSNumber*)[questionDictionary objectForKey:@"correctAnswer"]).integerValue];
+            [questions addObject:q];
+        }
+        self.questions = [NSArray arrayWithArray:questions];
     }
     return self;
 }
