@@ -20,5 +20,6 @@
 -(Question*) initWithQuestion:(NSString *) question answers:(NSArray *) answers correct:(int)correct;
 
 -(BOOL) checkAnswer;
+-(NSArray *)getFiftyFifty;
 
 @end

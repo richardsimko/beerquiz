@@ -13,6 +13,8 @@
 @interface QuizSession : NSObject
 
 @property (nonatomic, readonly, retain) Stats *stats;
+@property (nonatomic) BOOL fiftyFiftySpent;
+@property (nonatomic) BOOL extraTimeSpent;
 
 -(QuizSession *) initWithQuestions:(NSArray *)questions;
 -(Question *)nextQuestion:(Question*)previousQuestion;

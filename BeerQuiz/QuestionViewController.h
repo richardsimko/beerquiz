@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Question.h"
+#import "QuizSession.h"
 
 @protocol QuestionViewControllerDelegate <NSObject>
 
@@ -22,8 +23,10 @@
 
 -(IBAction)quitQuiz:(id)sender;
 -(IBAction)answerPressed:(id)sender;
+-(IBAction)fiftyFiftyPressed:(id)sender;
+-(IBAction)extraTimePressed:(id)sender;
 
-- (QuestionViewController*)initWithQuestion:(Question *)question;
+- (QuestionViewController*)initWithQuestion:(Question *)question inSession:(QuizSession *)session;
 
 
 @end

@@ -39,7 +39,7 @@
 }
 
 -(void) presentQuestion: (Question*) q{
-    QuestionViewController *vc = [[QuestionViewController alloc] initWithQuestion:q];
+    QuestionViewController *vc = [[QuestionViewController alloc] initWithQuestion:q inSession:self.session];
     vc.delegate = self;
     [self presentViewController:vc animated:YES completion:nil];
 }

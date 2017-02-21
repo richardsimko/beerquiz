@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Stats.h";
+#import "Stats.h"
 
 @interface GameOverViewController : UIViewController
 

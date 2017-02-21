@@ -7,18 +7,20 @@
 //
 
 #import "QuestionViewController.h"
+#import "DisablableButton.h"
 
 @interface QuestionViewController ()
 
 @property (nonatomic, retain) Question *question;
+@property (nonatomic, retain) QuizSession *session;
 
 @property (nonatomic, retain) IBOutletCollection(UIButton) NSArray *answerButtons;
 
 @property (nonatomic, retain) IBOutlet UILabel *questionLabel;
 
-@property (nonatomic, retain) IBOutlet UIButton *fiftyFiftyButton;
+@property (nonatomic, retain) IBOutlet DisablableButton *fiftyFiftyButton;
 @property (nonatomic, retain) IBOutlet UILabel *timeRemainingLabel;
-@property (nonatomic, retain) IBOutlet UIButton *plusTimeButton;
+@property (nonatomic, retain) IBOutlet DisablableButton *extraTimeButton;
 
 @property (nonatomic, retain) NSTimer *updateTimeTimer;
 @property (nonatomic, retain) NSTimer *timelimitTimer;
@@ -31,12 +33,14 @@
 @implementation QuestionViewController
 
 static const double MAX_TIME = 15.0;
+static const double EXTRA_TIME = 10.0;
 
-- (QuestionViewController*)initWithQuestion:(Question *)question{
+- (QuestionViewController*)initWithQuestion:(Question *)question inSession:(QuizSession *)session{
     if (self = [super initWithNibName:@"QuestionViewController" bundle:nil]) {
         if(!question){
             @throw [NSException exceptionWithName:@"InvalidInputException" reason:@"Question must not be nil" userInfo:nil];
         }
+        self.session = session;
         self.question = question;
     }
     return self;
@@ -49,6 +53,12 @@ static const double MAX_TIME = 15.0;
         NSString *answerText = [self.question.answers objectAtIndex:i];
         [((UIButton *)[self.answerButtons objectAtIndex:i]) setTitle:answerText forState:UIControlStateNormal];
     }
+    if(self.session.fiftyFiftySpent){
+        [self.fiftyFiftyButton disable];
+    }
+    if (self.session.extraTimeSpent) {
+        [self.extraTimeButton disable];
+    }
     self.timeRemainingLabel.text = [NSString stringWithFormat:@"Time left: %.2f", MAX_TIME];
 }
 
@@ -57,21 +67,13 @@ static const double MAX_TIME = 15.0;
 
     self.startTime = [[NSDate date] timeIntervalSince1970];
     self.expiryTime = self.startTime + MAX_TIME;
+    
     self.updateTimeTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block: ^(NSTimer *timer){
         NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
         self.timeRemainingLabel.text = [NSString stringWithFormat:@"Time left: %.2f", self.expiryTime - currentTime];
     }];
-    self.timelimitTimer = [NSTimer scheduledTimerWithTimeInterval:MAX_TIME repeats:NO block:^(NSTimer *timer){
-        [self.updateTimeTimer invalidate];
-        for (UIButton *button in self.answerButtons) {
-            button.userInteractionEnabled = YES;
-        }
-        self.question.timeout = YES;
-        self.question.answerGiven = -1;
-        self.question.timeTaken = MAX_TIME;
-        [self dismissViewControllerAnimated:YES completion:nil];
-        [self.delegate didAnswerQuestion:self.question];
-    }];
+    
+    [self startExpiryTimer];
 }
 
 -(IBAction)quitQuiz:(id)sender{
@@ -85,12 +87,43 @@ static const double MAX_TIME = 15.0;
     [self.updateTimeTimer invalidate];
     [self.timelimitTimer invalidate];
     NSInteger index = [self.answerButtons indexOfObject:sender];
-    if (index > -1) {
-        self.question.timeTaken = [[NSDate date] timeIntervalSince1970] - self.startTime;
-        self.question.answerGiven = index;
-        [self dismissViewControllerAnimated:YES completion:nil];
-        [self.delegate didAnswerQuestion:self.question];
+    [self finishQuestion:index];
+}
+
+-(IBAction)fiftyFiftyPressed:(id)sender{
+    NSArray *removeIndices = [self.question getFiftyFifty];
+    self.session.fiftyFiftySpent = YES;
+    [self.fiftyFiftyButton disable];
+    for (NSNumber *num in removeIndices) {
+        ((UIButton *)[self.answerButtons objectAtIndex:num.integerValue]).hidden = YES;
     }
+}
+
+-(IBAction)extraTimePressed:(id)sender{
+    self.expiryTime += EXTRA_TIME;
+    self.session.extraTimeSpent = YES;
+    [self.extraTimeButton disable];
+    [self startExpiryTimer];
+}
+
+-(void) startExpiryTimer{
+    [self.timelimitTimer invalidate];
+    self.timelimitTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSince1970:self.expiryTime] interval:0 repeats:NO block:^(NSTimer *timer){
+        [self.updateTimeTimer invalidate];
+        for (UIButton *button in self.answerButtons) {
+            button.userInteractionEnabled = YES;
+        }
+        self.question.timeout = YES;
+        [self finishQuestion:-1];
+    }];
+    [[NSRunLoop currentRunLoop] addTimer:self.timelimitTimer forMode:NSDefaultRunLoopMode];
+}
+
+-(void) finishQuestion:(NSInteger) index{
+    self.question.timeTaken = [[NSDate date] timeIntervalSince1970] - self.startTime;
+    self.question.answerGiven = index;
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.delegate didAnswerQuestion:self.question];
 }
 
 
