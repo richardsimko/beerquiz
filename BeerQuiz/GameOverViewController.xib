@@ -17,6 +17,7 @@
                 <outlet property="inCorrectLabel" destination="wOs-xb-Ikg" id="hr6-8Y-Yzc"/>
                 <outlet property="skippedLabel" destination="oec-Qv-Oyx" id="NRd-0g-Ii9"/>
                 <outlet property="slowestQuestionLabel" destination="zyU-jj-Umb" id="ZSB-KE-emT"/>
+                <outlet property="totalTimeTakenLabel" destination="NBS-Cx-FLu" id="FXs-ck-niU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -75,6 +76,13 @@
                         <action selector="doneButtonPressed:" destination="-1" eventType="touchUpInside" id="vMz-Ci-QR4"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total time taken: {number}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBS-Cx-FLu">
+                    <rect key="frame" x="16" y="174" width="203" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
