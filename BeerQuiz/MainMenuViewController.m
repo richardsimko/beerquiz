@@ -9,6 +9,7 @@
 #import "MainMenuViewController.h"
 
 #import "QuestionViewController.h"
+#import "GameOverViewController.h"
 #import "Question.h"
 #import "QuizSession.h"
 
@@ -38,7 +39,7 @@
 }
 
 -(void) presentQuestion: (Question*) q{
-    QuestionViewController *vc = [[QuestionViewController alloc] initWithQuestion:[self.session nextQuestion]];
+    QuestionViewController *vc = [[QuestionViewController alloc] initWithQuestion:q];
     vc.delegate = self;
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -52,16 +53,17 @@
     Question *question = [[Question alloc] initWithQuestion:@"What is the meaning of life?" answers:[NSArray arrayWithObjects: @"1", @"2", @"3", @"42", nil] correct:3];
     self.session = [[QuizSession alloc] initWithQuestions:[NSArray arrayWithObjects:question, nil]];
     self.quizInProgressLabel.hidden = NO;
-    [self presentQuestion:[self.session nextQuestion]];
+    [self presentQuestion:[self.session nextQuestion:nil]];
 }
 
 -(void) didAnswerQuestion:(Question *) question {
-    Question *nextQuestion = [self.session nextQuestion];
+    Question *nextQuestion = [self.session nextQuestion:question];
     if (nextQuestion) {
         [self presentQuestion:nextQuestion];
     } else {
         self.quizInProgressLabel.hidden = YES;
-        NSLog(@"Quiz complete");
+        GameOverViewController *vc = [[GameOverViewController alloc] initWithSession:self.session.stats];
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 

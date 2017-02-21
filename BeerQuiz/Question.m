@@ -8,6 +8,14 @@
 
 #import "Question.h"
 
+@interface Question()
+
+@property (nonatomic, retain) NSString *questionText;
+@property (nonatomic, retain) NSArray *answers;
+@property (nonatomic) int correctAnswer;
+
+@end
+
 @implementation Question
 
 -(Question*) initWithQuestion:(NSString *) question answers:(NSArray *) answers correct:(int)correct{

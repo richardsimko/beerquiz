@@ -8,30 +8,44 @@
 
 #import "GameOverViewController.h"
 
+
 @interface GameOverViewController ()
+
+@property (nonatomic, retain) IBOutlet UILabel *correctLabel;
+@property (nonatomic, retain) IBOutlet UILabel *inCorrectLabel;
+@property (nonatomic, retain) IBOutlet UILabel *skippedLabel;
+@property (nonatomic, retain) IBOutlet UILabel *avgResponseTimeLabel;
+@property (nonatomic, retain) IBOutlet UILabel *fastestQuestionLabel;
+@property (nonatomic, retain) IBOutlet UILabel *slowestQuestionLabel;
+
+@property( nonatomic, retain) Stats *stats;
 
 @end
 
 @implementation GameOverViewController
 
-- (void)viewDidLoad {
+-(GameOverViewController *)initWithSession:(Stats *) stats{
+    if (self = [super initWithNibName:@"GameOverViewController" bundle:nil]) {
+        if(!stats){
+            @throw [NSException exceptionWithName:@"InvalidInputException" reason:@"Stats must not be nil" userInfo:nil];
+        }
+        self.stats = stats;
+    }
+    return self;
+}
+
+-(void) viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.correctLabel.text = [NSString stringWithFormat:@"Correct: %ld", (long)self.stats.correctAnswers];
+    self.inCorrectLabel.text = [NSString stringWithFormat:@"Incorrect: %ld", (long)self.stats.incorrectAnswers];
+    self.skippedLabel.text = [NSString stringWithFormat:@"Missed: %ld", (long)self.stats.missedQuestions];
+    self.avgResponseTimeLabel.text = [NSString stringWithFormat:@"Average time taken: %.2f", self.stats.averageResponseTime];
+    self.slowestQuestionLabel.text = [NSString stringWithFormat:@"Slowest answer: %.2f", self.stats.slowestResponseTime];
+    self.fastestQuestionLabel.text = [NSString stringWithFormat:@"Fastest answer: %.2f", self.stats.fastestResponseTime];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(IBAction)doneButtonPressed:(id)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Stats.h";
 
 @interface GameOverViewController : UIViewController
+
+-(GameOverViewController *)initWithSession:(Stats *) session;
+
+-(IBAction)doneButtonPressed:(id)sender;
 
 @end

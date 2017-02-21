@@ -10,11 +10,12 @@
 
 @interface Question : NSObject
 
-@property(nonatomic, retain) NSString *questionText;
-@property (nonatomic, retain) NSArray *answers;
-@property (nonatomic) int correctAnswer;
+@property(nonatomic, retain, readonly) NSString *questionText;
+@property (nonatomic, retain, readonly) NSArray *answers;
+@property (nonatomic, readonly) int correctAnswer;
 @property (nonatomic) NSInteger answerGiven;
 @property (nonatomic) double timeTaken;
+@property (nonatomic) BOOL timeout;
 
 -(Question*) initWithQuestion:(NSString *) question answers:(NSArray *) answers correct:(int)correct;
 

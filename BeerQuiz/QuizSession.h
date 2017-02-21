@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Question.h"
+#import "Stats.h"
 
 @interface QuizSession : NSObject
 
--(QuizSession *) initWithQuestions:(NSArray *)questions;
+@property (nonatomic, readonly, retain) Stats *stats;
 
--(Question *)nextQuestion;
+-(QuizSession *) initWithQuestions:(NSArray *)questions;
+-(Question *)nextQuestion:(Question*)previousQuestion;
 
 @end
