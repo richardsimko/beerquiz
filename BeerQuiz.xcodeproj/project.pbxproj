@@ -21,6 +21,7 @@
 		1D8FF5851E5CAA1B00A286C3 /* QuizSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF5841E5CAA1B00A286C3 /* QuizSession.m */; };
 		1D8FF5881E5CB59600A286C3 /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF5871E5CB59600A286C3 /* Stats.m */; };
 		1D8FF58E1E5CC50900A286C3 /* DisablableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF58D1E5CC50900A286C3 /* DisablableButton.m */; };
+		1D8FF5961E5CCD2100A286C3 /* Quiz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D8FF5951E5CCD2100A286C3 /* Quiz.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		1D8FF5871E5CB59600A286C3 /* Stats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stats.m; sourceTree = "<group>"; };
 		1D8FF58C1E5CC50900A286C3 /* DisablableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisablableButton.h; sourceTree = "<group>"; };
 		1D8FF58D1E5CC50900A286C3 /* DisablableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisablableButton.m; sourceTree = "<group>"; };
+		1D8FF5951E5CCD2100A286C3 /* Quiz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Quiz.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				1D8FF5671E5C9EE700A286C3 /* LaunchScreen.storyboard */,
 				1D8FF56A1E5C9EE700A286C3 /* Info.plist */,
 				1D8FF5591E5C9EE700A286C3 /* Supporting Files */,
+				1D8FF5951E5CCD2100A286C3 /* Quiz.plist */,
 			);
 			path = BeerQuiz;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D8FF5961E5CCD2100A286C3 /* Quiz.plist in Resources */,
 				1D8FF57A1E5C9F6A00A286C3 /* GameOverViewController.xib in Resources */,
 				1D8FF5691E5C9EE700A286C3 /* LaunchScreen.storyboard in Resources */,
 				1D8FF5661E5C9EE700A286C3 /* Assets.xcassets in Resources */,
