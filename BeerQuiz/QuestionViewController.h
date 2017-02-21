@@ -12,6 +12,7 @@
 @protocol QuestionViewControllerDelegate <NSObject>
 
 -(void)didAnswerQuestion:(Question *) question;
+-(void)didQuit;
 
 @end
 

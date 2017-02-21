@@ -75,6 +75,9 @@ static const double MAX_TIME = 15.0;
 }
 
 -(IBAction)quitQuiz:(id)sender{
+    [self.updateTimeTimer invalidate];
+    [self.timelimitTimer invalidate];
+    [self.delegate didQuit];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

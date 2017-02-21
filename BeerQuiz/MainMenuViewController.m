@@ -67,4 +67,9 @@
     }
 }
 
+-(void) didQuit{
+    self.quizInProgressLabel.hidden = YES;
+    self.session = nil;
+}
+
 @end
