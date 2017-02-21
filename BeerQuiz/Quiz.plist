@@ -3,6 +3,136 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>correctAnswer</key>
+		<integer>1</integer>
+		<key>question</key>
+		<string>The “head” of a beer refers to:</string>
+		<key>answers</key>
+		<array>
+			<string>The neck of the bottle</string>
+			<string>The foam on top of the beer</string>
+			<string>The strength of the beer’s flavor</string>
+			<string>The beer’s alcohol content</string>
+		</array>
+	</dict>
+	<dict>
+		<key>correctAnswer</key>
+		<integer>0</integer>
+		<key>question</key>
+		<string>Fermentation in beer is caused by yeast consuming:</string>
+		<key>answers</key>
+		<array>
+			<string>Sugars</string>
+			<string>Carbon dioxide</string>
+			<string>Wheat husks</string>
+			<string>Hops</string>
+		</array>
+	</dict>
+	<dict>
+		<key>correctAnswer</key>
+		<integer>0</integer>
+		<key>question</key>
+		<string>Fermentation tanks at large breweries are typically made of:</string>
+		<key>answers</key>
+		<array>
+			<string>Steel</string>
+			<string>Aluminum</string>
+			<string>Copper</string>
+			<string>Wood</string>
+		</array>
+	</dict>
+	<dict>
+		<key>correctAnswer</key>
+		<integer>0</integer>
+		<key>question</key>
+		<string>Which kind of glass is appropriate for serving lambics?</string>
+		<key>answers</key>
+		<array>
+			<string>Tulip glass</string>
+			<string>Snifter</string>
+			<string>Beer boot</string>
+			<string>Flute glass</string>
+		</array>
+	</dict>
+	<dict>
+		<key>correctAnswer</key>
+		<integer>1</integer>
+		<key>question</key>
+		<string>Which style of beer typically has the darkest color?</string>
+		<key>answers</key>
+		<array>
+			<string>IPA</string>
+			<string>Stout</string>
+			<string>Weissbier</string>
+			<string>Pilsner</string>
+		</array>
+	</dict>
+	<dict>
+		<key>correctAnswer</key>
+		<integer>2</integer>
+		<key>question</key>
+		<string>Hops gives beer its:</string>
+		<key>answers</key>
+		<array>
+			<string>Carbonation</string>
+			<string>Alcohol</string>
+			<string>Flavor</string>
+			<string>Color</string>
+		</array>
+	</dict>
+	<dict>
+		<key>correctAnswer</key>
+		<integer>1</integer>
+		<key>question</key>
+		<string>Lagers are always fermented:</string>
+		<key>answers</key>
+		<array>
+			<string>In wooden casks</string>
+			<string>At colder temperatures than ales</string>
+			<string>In Europe</string>
+			<string>Outdoors</string>
+		</array>
+	</dict>
+	<dict>
+		<key>correctAnswer</key>
+		<integer>3</integer>
+		<key>question</key>
+		<string>Wort is:</string>
+		<key>answers</key>
+		<array>
+			<string>The volume of beer in a glass</string>
+			<string>The sludgy sediment left after fermentation</string>
+			<string>The aroma of beer</string>
+			<string>The beer before it’s fermented</string>
+		</array>
+	</dict>
+	<dict>
+		<key>correctAnswer</key>
+		<integer>2</integer>
+		<key>question</key>
+		<string>What does IPA stand for?</string>
+		<key>answers</key>
+		<array>
+			<string>Imperial Pale Ale</string>
+			<string>Italian Pale Ale</string>
+			<string>India Pale Ale</string>
+			<string>International Pale Ale</string>
+		</array>
+	</dict>
+	<dict>
+		<key>correctAnswer</key>
+		<integer>1</integer>
+		<key>question</key>
+		<string>What does ABV stand for?</string>
+		<key>answers</key>
+		<array>
+			<string>Alcohol by Viscosity</string>
+			<string>Alcohol by Volume</string>
+			<string>Alcoholic by Vibrancy</string>
+			<string>Athletic but Vegan</string>
+		</array>
+	</dict>
+	<dict>
 		<key>answers</key>
 		<array>
 			<string>Hops</string>
