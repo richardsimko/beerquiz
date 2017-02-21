@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GameOverViewController.h
 //  BeerQuiz
 //
 //  Created by Richard Simko on 2017-02-21.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface GameOverViewController : UIViewController
 
 @end
-
