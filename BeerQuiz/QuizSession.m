@@ -13,11 +13,12 @@
 @property (nonatomic, retain) NSMutableArray *questions;
 @property (nonatomic) NSInteger currentQuestion;
 @property (nonatomic, retain) Stats *stats;
-@property (nonatomic) NSInteger totalNubmerOfQuestions;
 
 @end
 
 @implementation QuizSession
+
+static const int NUM_QUESTIONS = 10;
 
 -(QuizSession *) init{
     if (self = [super init]) {
@@ -27,10 +28,12 @@
     return self;
 }
 
+/**
+ * Initialize the game with an array of questions. Should only be used for debugging.
+ */
 -(QuizSession *) initWithQuestions:(NSArray *)questions {
     if (self = [self init]) {
         self.questions = [questions mutableCopy];
-        self.totalNubmerOfQuestions = self.questions.count;
     }
     return self;
 }
@@ -47,8 +50,12 @@
             Question *q = [[Question alloc] initWithDictionary:questionDictionary];
             [questions addObject:q];
         }
+        // Remove items untill we have the correct number of questions left
+        while(questions.count > NUM_QUESTIONS){
+            int randomIndex = arc4random_uniform((int) questions.count);
+            [questions removeObjectAtIndex:randomIndex];
+        }
         self.questions = questions;
-        self.totalNubmerOfQuestions = self.questions.count;
     }
     return self;
 }
@@ -75,7 +82,7 @@
         }
         
         self.stats.totalTimeTaken += previousQuestion.timeTaken;
-        self.stats.averageResponseTime = self.stats.totalTimeTaken / self.totalNubmerOfQuestions;
+        self.stats.averageResponseTime = self.stats.totalTimeTaken / NUM_QUESTIONS;
         [self.questions removeObject:previousQuestion];
     }
     self.currentQuestion++;
