@@ -10,9 +10,10 @@
 
 @interface QuizSession()
 
-@property (nonatomic, retain) NSArray *questions;
+@property (nonatomic, retain) NSMutableArray *questions;
 @property (nonatomic) NSInteger currentQuestion;
 @property (nonatomic, retain) Stats *stats;
+@property (nonatomic) NSInteger totalNubmerOfQuestions;
 
 @end
 
@@ -28,7 +29,8 @@
 
 -(QuizSession *) initWithQuestions:(NSArray *)questions {
     if (self = [self init]) {
-        self.questions = questions;
+        self.questions = [questions mutableCopy];
+        self.totalNubmerOfQuestions = self.questions.count;
     }
     return self;
 }
@@ -45,13 +47,14 @@
             Question *q = [[Question alloc] initWithDictionary:questionDictionary];
             [questions addObject:q];
         }
-        self.questions = [NSArray arrayWithArray:questions];
+        self.questions = questions;
+        self.totalNubmerOfQuestions = self.questions.count;
     }
     return self;
 }
 
 /**
- * Gets the next question in this session and updates the stats with those of the previous one.
+ * Gets a random new question in this session and updates the stats with those of the previous one.
  */
 -(Question *)nextQuestion:(Question *)previousQuestion {
     if(previousQuestion){
@@ -72,11 +75,13 @@
         }
         
         self.stats.totalTimeTaken += previousQuestion.timeTaken;
-        self.stats.averageResponseTime = self.stats.totalTimeTaken / self.questions.count;
+        self.stats.averageResponseTime = self.stats.totalTimeTaken / self.totalNubmerOfQuestions;
+        [self.questions removeObject:previousQuestion];
     }
     self.currentQuestion++;
-    if (self.currentQuestion < self.questions.count) {
-        Question *nextQuestion = [self.questions objectAtIndex:self.currentQuestion];
+    if (self.questions.count > 0) {
+        int randomIndex = arc4random_uniform((int) self.questions.count);
+        Question *nextQuestion = [self.questions objectAtIndex:randomIndex];
         return nextQuestion;
     } else {
         return nil;
