@@ -7,6 +7,7 @@
 //
 
 #import "Question.h"
+#import "ShufflingArray.h"
 #include <stdlib.h>
 
 @interface Question()
@@ -32,7 +33,11 @@
         self.questionText = question;
         self.answers = answers;
         self.correctAnswer = correct;
-        
+        NSMutableArray *mutableAnswers = [self.answers mutableCopy];
+        NSString *correctAnswer = [self.answers objectAtIndex:self.correctAnswer];
+        [mutableAnswers shuffle];
+        self.correctAnswer = [mutableAnswers indexOfObject:correctAnswer];
+        self.answers = [NSArray arrayWithArray:mutableAnswers];
     }
     return self;
 }
@@ -45,8 +50,12 @@
             self.questionImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageNameWithoutExtension ofType:[imageName pathExtension]]];
         }
         self.questionText = [dictionary objectForKey:@"question"];
-        self.answers = [dictionary objectForKey:@"answers"];
+        NSMutableArray *answers = [[dictionary objectForKey:@"answers"] mutableCopy];
         self.correctAnswer = ((NSNumber *)[dictionary objectForKey:@"correctAnswer"]).integerValue;
+        NSString *correctAnswer = [answers objectAtIndex:self.correctAnswer];
+        [answers shuffle];
+        self.correctAnswer = [answers indexOfObject:correctAnswer];
+        self.answers = [NSArray arrayWithArray:answers];
     }
     return self;
 }

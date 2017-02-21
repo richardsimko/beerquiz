@@ -7,6 +7,7 @@
 //
 
 #import "QuizSession.h"
+#import "ShufflingArray.h"
 
 @interface QuizSession()
 
@@ -55,6 +56,7 @@ static const int NUM_QUESTIONS = 10;
             int randomIndex = arc4random_uniform((int) questions.count);
             [questions removeObjectAtIndex:randomIndex];
         }
+        [questions shuffle];
         self.questions = questions;
     }
     return self;

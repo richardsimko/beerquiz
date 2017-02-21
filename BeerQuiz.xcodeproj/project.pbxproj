@@ -23,6 +23,7 @@
 		1D8FF58E1E5CC50900A286C3 /* DisablableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF58D1E5CC50900A286C3 /* DisablableButton.m */; };
 		1D8FF5961E5CCD2100A286C3 /* Quiz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D8FF5951E5CCD2100A286C3 /* Quiz.plist */; };
 		1D8FF5991E5CD42100A286C3 /* hops.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D8FF5981E5CD42100A286C3 /* hops.jpg */; };
+		1D8FF59C1E5CDD3B00A286C3 /* ShufflingArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF59B1E5CDD3B00A286C3 /* ShufflingArray.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		1D8FF58D1E5CC50900A286C3 /* DisablableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisablableButton.m; sourceTree = "<group>"; };
 		1D8FF5951E5CCD2100A286C3 /* Quiz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Quiz.plist; sourceTree = "<group>"; };
 		1D8FF5981E5CD42100A286C3 /* hops.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hops.jpg; sourceTree = "<group>"; };
+		1D8FF59A1E5CDD3B00A286C3 /* ShufflingArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShufflingArray.h; sourceTree = "<group>"; };
+		1D8FF59B1E5CDD3B00A286C3 /* ShufflingArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShufflingArray.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 				1D8FF5841E5CAA1B00A286C3 /* QuizSession.m */,
 				1D8FF5861E5CB59600A286C3 /* Stats.h */,
 				1D8FF5871E5CB59600A286C3 /* Stats.m */,
+				1D8FF59A1E5CDD3B00A286C3 /* ShufflingArray.h */,
+				1D8FF59B1E5CDD3B00A286C3 /* ShufflingArray.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D8FF59C1E5CDD3B00A286C3 /* ShufflingArray.m in Sources */,
 				1D8FF5791E5C9F6A00A286C3 /* GameOverViewController.m in Sources */,
 				1D8FF5881E5CB59600A286C3 /* Stats.m in Sources */,
 				1D8FF57E1E5CA00900A286C3 /* QuestionViewController.m in Sources */,

@@ -64,6 +64,12 @@ static const double EXTRA_TIME = 10.0;
         self.questionLabel.hidden = YES;
         self.questionImageView.image = self.question.questionImage;
     }
+    // Do some UI setup that can't be done in IB
+    for (UIButton *button in self.answerButtons) {
+        button.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        button.titleLabel.numberOfLines = 2;
+        button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    }
     self.timeRemainingLabel.text = [NSString stringWithFormat:@"Time left: %.2f", MAX_TIME];
 }
 
