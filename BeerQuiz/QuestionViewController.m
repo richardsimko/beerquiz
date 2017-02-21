@@ -17,6 +17,7 @@
 @property (nonatomic, retain) IBOutletCollection(UIButton) NSArray *answerButtons;
 
 @property (nonatomic, retain) IBOutlet UILabel *questionLabel;
+@property (nonatomic, retain) IBOutlet UIImageView *questionImageView;
 
 @property (nonatomic, retain) IBOutlet DisablableButton *fiftyFiftyButton;
 @property (nonatomic, retain) IBOutlet UILabel *timeRemainingLabel;
@@ -58,6 +59,10 @@ static const double EXTRA_TIME = 10.0;
     }
     if (self.session.extraTimeSpent) {
         [self.extraTimeButton disable];
+    }
+    if (self.question.questionImage) {
+        self.questionLabel.hidden = YES;
+        self.questionImageView.image = self.question.questionImage;
     }
     self.timeRemainingLabel.text = [NSString stringWithFormat:@"Time left: %.2f", MAX_TIME];
 }

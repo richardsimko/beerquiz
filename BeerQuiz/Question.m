@@ -14,17 +14,39 @@
 @property (nonatomic, retain) NSString *questionText;
 @property (nonatomic, retain) NSArray *answers;
 @property (nonatomic) NSInteger correctAnswer;
+@property (nonnull, retain) UIImage *questionImage;
 
 @end
 
 @implementation Question
 
--(Question*) initWithQuestion:(NSString *) question answers:(NSArray *) answers correct:(NSInteger)correct{
+-(Question *) init{
     if (self = [super init]) {
+        self.answerGiven = -1;
+    }
+    return self;
+}
+
+-(Question*) initWithQuestion:(NSString *) question answers:(NSArray *) answers correct:(NSInteger)correct{
+    if (self = [self init]) {
         self.questionText = question;
         self.answers = answers;
         self.correctAnswer = correct;
-        self.answerGiven = -1;
+        
+    }
+    return self;
+}
+
+-(Question*) initWithDictionary:(NSDictionary *)dictionary{
+    if (self = [self init]) {
+        NSString *imageName = [dictionary objectForKey:@"questionImage"];
+        NSString *imageNameWithoutExtension = [imageName stringByDeletingPathExtension];
+        if (imageName) {
+            self.questionImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageNameWithoutExtension ofType:[imageName pathExtension]]];
+        }
+        self.questionText = [dictionary objectForKey:@"question"];
+        self.answers = [dictionary objectForKey:@"answers"];
+        self.correctAnswer = ((NSNumber *)[dictionary objectForKey:@"correctAnswer"]).integerValue;
     }
     return self;
 }

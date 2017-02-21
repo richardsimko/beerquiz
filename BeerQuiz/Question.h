@@ -7,19 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Question : NSObject
 
-@property(nonatomic, retain, readonly) NSString *questionText;
-@property (nonatomic, retain, readonly) NSArray *answers;
+@property(nonatomic, retain, readonly, nonnull) NSString *questionText;
+@property (nonatomic, retain, nonnull, readonly) NSArray *answers;
 @property (nonatomic, readonly) NSInteger correctAnswer;
+@property (nonnull, readonly, retain) UIImage *questionImage;
 @property (nonatomic) NSInteger answerGiven;
 @property (nonatomic) double timeTaken;
 @property (nonatomic) BOOL timeout;
 
--(Question*) initWithQuestion:(NSString *) question answers:(NSArray *) answers correct:(NSInteger)correct;
+-(nonnull Question*) initWithQuestion:(nonnull NSString *) question answers:(nonnull NSArray *) answers correct:(NSInteger)correct;
+-(nonnull Question*) initWithDictionary:(nonnull NSDictionary *)dictionary;
 
 -(BOOL) checkAnswer;
--(NSArray *)getFiftyFifty;
+-(nonnull NSArray *)getFiftyFifty;
 
 @end

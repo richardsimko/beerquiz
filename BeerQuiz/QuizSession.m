@@ -42,7 +42,7 @@
         NSArray *questionPlist = [NSArray arrayWithContentsOfFile:path];
         NSMutableArray *questions = [NSMutableArray array];
         for (NSDictionary *questionDictionary in questionPlist) {
-            Question *q = [[Question alloc] initWithQuestion:[questionDictionary objectForKey:@"question"] answers:[questionDictionary objectForKey:@"answers"] correct:((NSNumber*)[questionDictionary objectForKey:@"correctAnswer"]).integerValue];
+            Question *q = [[Question alloc] initWithDictionary:questionDictionary];
             [questions addObject:q];
         }
         self.questions = [NSArray arrayWithArray:questions];
