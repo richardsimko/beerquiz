@@ -42,7 +42,7 @@
     for (int i = 0; i < self.answers.count / 2; i++) {
         int randomIndex = arc4random_uniform((int) self.answers.count - 1);
         // Make sure we never generate the same number twice and that it's not the answer index
-        while ([output indexOfObject:[NSNumber numberWithInt:randomIndex]] != NSNotFound && randomIndex != self.correctAnswer) {
+        while ([output indexOfObject:[NSNumber numberWithInt:randomIndex]] != NSNotFound || randomIndex == self.correctAnswer) {
             randomIndex = arc4random_uniform((int) self.answers.count - 1);
         }
         [output addObject:[NSNumber numberWithInt:randomIndex]];
