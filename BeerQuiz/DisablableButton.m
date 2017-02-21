@@ -11,7 +11,7 @@
 @implementation DisablableButton
 
 -(void)disable{
-    self.userInteractionEnabled = YES;
+    self.userInteractionEnabled = NO;
     self.tintColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.3];
 }
 
