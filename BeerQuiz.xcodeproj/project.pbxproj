@@ -17,6 +17,8 @@
 		1D8FF57A1E5C9F6A00A286C3 /* GameOverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D8FF5781E5C9F6A00A286C3 /* GameOverViewController.xib */; };
 		1D8FF57E1E5CA00900A286C3 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF57C1E5CA00900A286C3 /* QuestionViewController.m */; };
 		1D8FF57F1E5CA00900A286C3 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D8FF57D1E5CA00900A286C3 /* QuestionViewController.xib */; };
+		1D8FF5821E5CA3CF00A286C3 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF5811E5CA3CF00A286C3 /* Question.m */; };
+		1D8FF5851E5CAA1B00A286C3 /* QuizSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF5841E5CAA1B00A286C3 /* QuizSession.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,10 @@
 		1D8FF57B1E5CA00900A286C3 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		1D8FF57C1E5CA00900A286C3 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		1D8FF57D1E5CA00900A286C3 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		1D8FF5801E5CA3CF00A286C3 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		1D8FF5811E5CA3CF00A286C3 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		1D8FF5831E5CAA1B00A286C3 /* QuizSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizSession.h; sourceTree = "<group>"; };
+		1D8FF5841E5CAA1B00A286C3 /* QuizSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizSession.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,10 @@
 		1D8FF5711E5C9F2E00A286C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D8FF5801E5CA3CF00A286C3 /* Question.h */,
+				1D8FF5811E5CA3CF00A286C3 /* Question.m */,
+				1D8FF5831E5CAA1B00A286C3 /* QuizSession.h */,
+				1D8FF5841E5CAA1B00A286C3 /* QuizSession.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -195,7 +205,9 @@
 			files = (
 				1D8FF5791E5C9F6A00A286C3 /* GameOverViewController.m in Sources */,
 				1D8FF57E1E5CA00900A286C3 /* QuestionViewController.m in Sources */,
+				1D8FF5851E5CAA1B00A286C3 /* QuizSession.m in Sources */,
 				1D8FF5611E5C9EE700A286C3 /* MainMenuViewController.m in Sources */,
+				1D8FF5821E5CA3CF00A286C3 /* Question.m in Sources */,
 				1D8FF55E1E5C9EE700A286C3 /* AppDelegate.m in Sources */,
 				1D8FF55B1E5C9EE700A286C3 /* main.m in Sources */,
 			);

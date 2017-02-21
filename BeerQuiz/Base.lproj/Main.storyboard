@@ -37,11 +37,19 @@
                                     <action selector="startQuiz:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KIb-TZ-BzV"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quiz in progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwz-JC-z9z">
+                                <rect key="frame" x="125" y="100" width="125" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="devModeButton" destination="vOk-ry-TGu" id="bNf-oW-Vmy"/>
+                        <outlet property="quizInProgressLabel" destination="Dwz-JC-z9z" id="6ue-hZ-mya"/>
                         <outlet property="startQuizButton" destination="Blg-cj-tBq" id="Pf2-ce-gNz"/>
                     </connections>
                 </viewController>
