@@ -55,14 +55,6 @@
                         <action selector="extraTimePressed:" destination="-1" eventType="touchUpInside" id="vYZ-3n-Xpn"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbd-69-6OK">
-                    <rect key="frame" x="16" y="20" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Quit"/>
-                    <connections>
-                        <action selector="quitQuiz:" destination="-1" eventType="touchUpInside" id="4l7-nu-MvT"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is the meaning of life?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcj-te-bAr">
                     <rect key="frame" x="0.0" y="203" width="375" height="64"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -102,8 +94,28 @@
                         <action selector="answerPressed:" destination="-1" eventType="touchUpInside" id="1ak-4D-hWM"/>
                     </connections>
                 </button>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrg-gf-XPv">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <items>
+                        <navigationItem title="Question" id="D2o-QG-hw5">
+                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="G0B-xf-sIC">
+                                <connections>
+                                    <action selector="quitQuiz:" destination="-1" id="WOC-A4-8Ja"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="u13-2V-l6a"/>
+                    </connections>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="wrg-gf-XPv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2n2-ol-yB7"/>
+                <constraint firstAttribute="trailing" secondItem="wrg-gf-XPv" secondAttribute="trailing" id="ksb-IL-9mk"/>
+                <constraint firstItem="wrg-gf-XPv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="lHW-GM-EOT"/>
+            </constraints>
             <point key="canvasLocation" x="33.5" y="109.5"/>
         </view>
     </objects>
