@@ -56,7 +56,7 @@
 }
 
 -(IBAction)showDeveloperMode:(id)sender{
-    self.devModeButton.hidden = NO;
+    self.devModeButton.hidden = !self.devModeButton.hidden;
 }
 
 -(void) didQuit{
