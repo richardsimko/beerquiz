@@ -19,7 +19,7 @@
 
 @implementation QuizSession
 
-static const int NUM_QUESTIONS = 10;
+int const NUM_QUESTIONS = 10;
 
 -(QuizSession *) init{
     if (self = [super init]) {

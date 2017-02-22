@@ -16,6 +16,7 @@
                 <outlet property="questionImageView" destination="nKk-63-aFT" id="P8t-da-Wft"/>
                 <outlet property="questionLabel" destination="lcj-te-bAr" id="wnN-aj-qoz"/>
                 <outlet property="timeRemainingLabel" destination="TvS-n7-uob" id="Y90-DS-NYa"/>
+                <outlet property="titleLabel" destination="D2o-QG-hw5" id="vIF-M3-8is"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="answerButtons" destination="2h5-lh-Hrq" id="TgP-O0-4Xl"/>
                 <outletCollection property="answerButtons" destination="Hcm-AG-1Of" id="wjk-cK-d02"/>

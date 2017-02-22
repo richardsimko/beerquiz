@@ -16,6 +16,7 @@
 
 @property (nonatomic, retain) IBOutletCollection(UIButton) NSArray *answerButtons;
 
+@property (nonatomic, retain) IBOutlet UINavigationItem *titleLabel;
 @property (nonatomic, retain) IBOutlet UILabel *questionLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *questionImageView;
 
@@ -49,6 +50,7 @@ static const double EXTRA_TIME = 10.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.titleLabel.title = [NSString stringWithFormat:NSLocalizedString(@"question.title.label", @""), self.session.currentQuestion + 1, NUM_QUESTIONS];
     self.questionLabel.text = self.question.questionText;
     for (int i = 0; i < self.question.answers.count; i++) {
         NSString *answerText = [self.question.answers objectAtIndex:i];
