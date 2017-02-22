@@ -65,18 +65,22 @@
 }
 
 /**
- * Gets the answers that should remain after a 50-50 has been played.
+ * Gets the answers that should be removed after a 50-50 has been played.
  */
 -(NSArray *)getFiftyFifty{
     NSMutableArray *output = [[NSMutableArray alloc] init];
+    NSMutableArray *answers = [self.answers mutableCopy];
+    [answers removeObjectAtIndex:self.correctAnswer];
     //    This assumes that we always have an even number of answers
     for (int i = 0; i < self.answers.count / 2; i++) {
-        int randomIndex = arc4random_uniform((int) self.answers.count - 1);
-        // Make sure we never generate the same number twice and that it's not the answer index
-        while ([output indexOfObject:[NSNumber numberWithInt:randomIndex]] != NSNotFound || randomIndex == self.correctAnswer) {
-            randomIndex = arc4random_uniform((int) self.answers.count - 1);
-        }
-        [output addObject:[NSNumber numberWithInt:randomIndex]];
+        // Pick a random index of the remaining answers
+        int randomIndex = arc4random_uniform((int) answers.count);
+        [output addObject:[answers objectAtIndex:randomIndex]];
+        [answers removeObjectAtIndex:randomIndex];
+    }
+    // Translate the answers back to indices and return them
+    for (int i = 0; i < output.count; i++) {
+        [output setObject:[NSNumber numberWithInteger:[self.answers indexOfObject:[output objectAtIndex:i]]] atIndexedSubscript:i];
     }
     return output;
 }
