@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Stats.h"
 
-@interface GameOverViewController : UIViewController
+@interface GameOverViewController : UIViewController <UINavigationBarDelegate>
 
 -(GameOverViewController *)initWithSession:(Stats *) session;
 

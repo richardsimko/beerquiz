@@ -17,7 +17,7 @@
 
 @end
 
-@interface QuestionViewController : UIViewController
+@interface QuestionViewController : UIViewController <UINavigationBarDelegate>
 
 @property (nonatomic, weak) NSObject<QuestionViewControllerDelegate> *delegate;
 

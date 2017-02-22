@@ -117,6 +117,11 @@ static const double EXTRA_TIME = 10.0;
     [self startExpiryTimer];
 }
 
+
+-(UIBarPosition) positionForBar:(id<UIBarPositioning>)bar{
+    return UIBarPositionTopAttached;
+}
+
 -(void) startExpiryTimer{
     [self.timelimitTimer invalidate];
     self.timelimitTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSince1970:self.expiryTime] interval:0 repeats:NO block:^(NSTimer *timer){
