@@ -11,6 +11,7 @@
 @interface MainMenuViewController : UIViewController
 
 -(IBAction)startQuiz:(id)sender;
+-(IBAction)showDeveloperMode:(id)sender;
 
 @end
 

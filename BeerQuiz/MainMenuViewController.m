@@ -55,6 +55,10 @@
     }
 }
 
+-(IBAction)showDeveloperMode:(id)sender{
+    self.devModeButton.hidden = NO;
+}
+
 -(void) didQuit{
     self.quizInProgressLabel.hidden = YES;
     self.session = nil;
