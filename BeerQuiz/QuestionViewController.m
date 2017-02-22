@@ -70,7 +70,7 @@ static const double EXTRA_TIME = 10.0;
         button.titleLabel.numberOfLines = 2;
         button.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
-    self.timeRemainingLabel.text = [NSString stringWithFormat:@"Time left: %.2f", MAX_TIME];
+    self.timeRemainingLabel.text = [NSString stringWithFormat:NSLocalizedString(@"question.timeLeft.label", @""), MAX_TIME];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -81,7 +81,7 @@ static const double EXTRA_TIME = 10.0;
     
     self.updateTimeTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block: ^(NSTimer *timer){
         NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
-        self.timeRemainingLabel.text = [NSString stringWithFormat:@"Time left: %.2f", self.expiryTime - currentTime];
+        self.timeRemainingLabel.text = [NSString stringWithFormat:NSLocalizedString(@"question.timeLeft.label", @""), self.expiryTime - currentTime];
     }];
     
     [self startExpiryTimer];

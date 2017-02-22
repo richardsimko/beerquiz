@@ -26,6 +26,12 @@
 
 @implementation MainMenuViewController
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    self.devModeButton.titleLabel.text = NSLocalizedString(@"mainMenu.devMode.button", @"");
+    self.startQuizButton.titleLabel.text = NSLocalizedString(@"mainMenu.startQuiz.button", @"");
+}
+
 -(IBAction)startQuiz:(id)sender{
     if (sender == self.devModeButton) {
         Question *question = [[Question alloc] initWithQuestion:@"What is the meaning of life?" answers:[NSArray arrayWithObjects: @"1", @"2", @"3", @"42", nil] correct:3];
