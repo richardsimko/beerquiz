@@ -41,18 +41,15 @@
         self.session = [[QuizSession alloc] initWithFilename: @"Quiz"];
     }
     self.quizInProgressLabel.hidden = NO;
-    [self presentQuestion:[self.session nextQuestion:nil]];
+    QuestionViewController *vc = [[QuestionViewController alloc] initWithSession:self.session];
+    vc.delegate = self;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
--(void) didAnswerQuestion:(Question *) question {
-    Question *nextQuestion = [self.session nextQuestion:question];
-    if (nextQuestion) {
-        [self presentQuestion:nextQuestion];
-    } else {
-        self.quizInProgressLabel.hidden = YES;
-        GameOverViewController *vc = [[GameOverViewController alloc] initWithSession:self.session.stats];
-        [self presentViewController:vc animated:YES completion:nil];
-    }
+-(void) didFinishQuiz {
+    self.quizInProgressLabel.hidden = YES;
+    GameOverViewController *vc = [[GameOverViewController alloc] initWithSession:self.session.stats];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 -(IBAction)showDeveloperMode:(id)sender{
@@ -63,13 +60,5 @@
     self.quizInProgressLabel.hidden = YES;
     self.session = nil;
 }
-
-
--(void) presentQuestion: (Question*) q{
-    QuestionViewController *vc = [[QuestionViewController alloc] initWithQuestion:q inSession:self.session];
-    vc.delegate = self;
-    [self presentViewController:vc animated:YES completion:nil];
-}
-
 
 @end

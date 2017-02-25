@@ -16,10 +16,11 @@
 @property (nonatomic) BOOL fiftyFiftySpent;
 @property (nonatomic) BOOL extraTimeSpent;
 @property (nonatomic, readonly) NSInteger currentQuestion;
+@property (nonatomic, retain, readonly) Question *currentQuestionObject;
 
 -(QuizSession *) initWithQuestions:(NSArray *)questions;
 -(QuizSession *) initWithFilename: (NSString *) filename;
--(Question *)nextQuestion:(Question*)previousQuestion;
+-(void)nextQuestion;
 
 @end
 

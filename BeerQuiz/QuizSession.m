@@ -14,6 +14,7 @@
 @property (nonatomic, retain) NSMutableArray *questions;
 @property (nonatomic) NSInteger currentQuestion;
 @property (nonatomic, retain) Stats *stats;
+@property (nonatomic, retain, readwrite) Question *currentQuestionObject;
 
 @end
 
@@ -58,6 +59,7 @@ int const NUM_QUESTIONS = 10;
         }
         [questions shuffle];
         self.questions = questions;
+        self.currentQuestionObject = [self.questions objectAtIndex:0];
     }
     return self;
 }
@@ -65,7 +67,8 @@ int const NUM_QUESTIONS = 10;
 /**
  * Gets a random new question in this session and updates the stats with those of the previous one.
  */
--(Question *)nextQuestion:(Question *)previousQuestion {
+-(void)nextQuestion {
+    Question *previousQuestion = self.currentQuestionObject;
     if(previousQuestion){
         if ([previousQuestion checkAnswer]) {
             self.stats.correctAnswers++;
@@ -91,9 +94,9 @@ int const NUM_QUESTIONS = 10;
     if (self.questions.count > 0) {
         int randomIndex = arc4random_uniform((int) self.questions.count);
         Question *nextQuestion = [self.questions objectAtIndex:randomIndex];
-        return nextQuestion;
+        self.currentQuestionObject = nextQuestion;
     } else {
-        return nil;
+        self.currentQuestionObject = nil;
     }
 }
 

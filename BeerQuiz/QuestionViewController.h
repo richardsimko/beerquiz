@@ -12,7 +12,7 @@
 
 @protocol QuestionViewControllerDelegate <NSObject>
 
--(void)didAnswerQuestion:(Question *) question;
+-(void)didFinishQuiz;
 -(void)didQuit;
 
 @end
@@ -26,7 +26,7 @@
 -(IBAction)fiftyFiftyPressed:(id)sender;
 -(IBAction)extraTimePressed:(id)sender;
 
-- (QuestionViewController*)initWithQuestion:(Question *)question inSession:(QuizSession *)session;
+- (QuestionViewController*)initWithSession:(QuizSession *)session;
 
 
 @end
