@@ -26,6 +26,8 @@
 
 @implementation MainMenuViewController
 
+static NSString *const PLIST_FILE_NAME = @"Quiz";
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.devModeButton.titleLabel.text = NSLocalizedString(@"mainMenu.devMode.button", @"");
@@ -38,7 +40,7 @@
         Question *question2 = [[Question alloc] initWithQuestion:@"1+1" answers:[NSArray arrayWithObjects: @"1", @"2", @"3", @"42", nil] correct:1];
         self.session = [[QuizSession alloc] initWithQuestions:[NSArray arrayWithObjects:question, question2, nil]];
     } else {
-        self.session = [[QuizSession alloc] initWithFilename: @"Quiz"];
+        self.session = [[QuizSession alloc] initWithFilename: PLIST_FILE_NAME];
     }
     self.quizInProgressLabel.hidden = NO;
     QuestionViewController *vc = [[QuestionViewController alloc] initWithSession:self.session];

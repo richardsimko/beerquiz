@@ -8,7 +8,7 @@
 
 #import "DisablableButton.h"
 
-@implementation DisablableButton
+@implementation UIButton (DisablableButton)
 
 -(void)disable{
     self.userInteractionEnabled = NO;
