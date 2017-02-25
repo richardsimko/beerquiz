@@ -20,9 +20,9 @@
 @property (nonatomic, retain) IBOutlet UILabel *questionLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *questionImageView;
 
-@property (nonatomic, retain) IBOutlet DisablableButton *fiftyFiftyButton;
+@property (nonatomic, retain) IBOutlet UIButton *fiftyFiftyButton;
 @property (nonatomic, retain) IBOutlet UILabel *timeRemainingLabel;
-@property (nonatomic, retain) IBOutlet DisablableButton *extraTimeButton;
+@property (nonatomic, retain) IBOutlet UIButton *extraTimeButton;
 
 @property (nonatomic, retain) NSTimer *updateTimeTimer;
 @property (nonatomic, retain) NSTimer *timelimitTimer;

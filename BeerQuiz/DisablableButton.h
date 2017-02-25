@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DisablableButton : UIButton
+@interface UIButton (DisablableButton)
 -(void)disable;
 @end
