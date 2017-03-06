@@ -72,6 +72,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D77789F1E6D5FD100A33AA9 /* Quiz Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1D77789B1E6D5A9100A33AA9 /* sour_beer.jpg */,
+				1D8FF5981E5CD42100A286C3 /* hops.jpg */,
+				1D8FF5951E5CCD2100A286C3 /* Quiz.plist */,
+			);
+			name = "Quiz Assets";
+			sourceTree = "<group>";
+		};
 		1D8FF54D1E5C9EE700A286C3 = {
 			isa = PBXGroup;
 			children = (
