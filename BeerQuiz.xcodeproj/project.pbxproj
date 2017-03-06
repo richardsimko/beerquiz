@@ -103,7 +103,6 @@
 			children = (
 				1DD4C4B51E61977B009A39EC /* Categories */,
 				1D77789F1E6D5FD100A33AA9 /* Quiz Assets */,
-				1D8FF5721E5C9F3100A286C3 /* Views */,
 				1D8FF5711E5C9F2E00A286C3 /* Model */,
 				1D8FF55C1E5C9EE700A286C3 /* AppDelegate.h */,
 				1D8FF55D1E5C9EE700A286C3 /* AppDelegate.m */,
@@ -152,13 +151,6 @@
 				1D8FF5871E5CB59600A286C3 /* Stats.m */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		1D8FF5721E5C9F3100A286C3 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 		1DD4C4B51E61977B009A39EC /* Categories */ = {
