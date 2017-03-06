@@ -3,6 +3,19 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>answers</key>
+		<array>
+			<string>IPAs</string>
+			<string>Pilsners</string>
+			<string>Sour Beer</string>
+			<string>Stouts</string>
+		</array>
+		<key>questionImage</key>
+		<string>sour_beer.jpg</string>
+		<key>correctAnswer</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
 		<key>correctAnswer</key>
 		<integer>1</integer>
 		<key>question</key>

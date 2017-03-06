@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D77789C1E6D5A9100A33AA9 /* sour_beer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D77789B1E6D5A9100A33AA9 /* sour_beer.jpg */; };
 		1D8FF55B1E5C9EE700A286C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF55A1E5C9EE700A286C3 /* main.m */; };
 		1D8FF55E1E5C9EE700A286C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF55D1E5C9EE700A286C3 /* AppDelegate.m */; };
 		1D8FF5611E5C9EE700A286C3 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8FF5601E5C9EE700A286C3 /* MainMenuViewController.m */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D77789B1E6D5A9100A33AA9 /* sour_beer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sour_beer.jpg; sourceTree = "<group>"; };
 		1D8FF5561E5C9EE700A286C3 /* BeerQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8FF55A1E5C9EE700A286C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1D8FF55C1E5C9EE700A286C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		1D8FF5971E5CD41A00A286C3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1D77789B1E6D5A9100A33AA9 /* sour_beer.jpg */,
 				1D8FF5981E5CD42100A286C3 /* hops.jpg */,
 			);
 			name = Images;
@@ -235,6 +238,7 @@
 				1D8FF5641E5C9EE700A286C3 /* Main.storyboard in Resources */,
 				1D8FF5A41E5CE3BE00A286C3 /* Localizable.strings in Resources */,
 				1D8FF57F1E5CA00900A286C3 /* QuestionViewController.xib in Resources */,
+				1D77789C1E6D5A9100A33AA9 /* sour_beer.jpg in Resources */,
 				1D8FF5991E5CD42100A286C3 /* hops.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
