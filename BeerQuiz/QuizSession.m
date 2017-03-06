@@ -59,7 +59,6 @@ int const NUM_QUESTIONS = 10;
         }
         [questions shuffle];
         self.questions = questions;
-        self.currentQuestionObject = [self.questions objectAtIndex:0];
     }
     return self;
 }
